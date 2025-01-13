@@ -7,7 +7,7 @@ root.innerHTML = `<div id="header"></div>
 const header = document.querySelector('#header');
 header.innerHTML = `
   <div id="Search-card" class="card ">
-      <span id="weather-label">Weather Report</span>
+      <h3 id="weather-label">Weather Report</h3>
       <div class="row">
       <div id="searchInput" class="col-lg-8">
         <input id="searchCity" class="form-control" type="search" placeholder="Search City" aria-label="Search">
