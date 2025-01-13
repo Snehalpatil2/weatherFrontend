@@ -141,7 +141,7 @@ body {
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 2% 6%;
-  margin: 2% auto;
+  margin: 1% auto;
   opacity: 0.9;
   overflow: visible;
 
@@ -201,12 +201,13 @@ body {
   top: 100%;
   left:8%;
   width: 60%;
-  height: 270%;
+  /* height: 270%; */
+  max-height: 270%;
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-height: 200px;
+  /* max-height: 200px; */
   overflow-y: auto;
   z-index: 1;
   padding: 0 1%;
@@ -222,4 +223,12 @@ body {
 
 #dropdown.hide {
   display: none;
+}
+
+#weather-label{
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-size: 200%;
+  font-weight: bold;
+  color: #001A6E;
 }

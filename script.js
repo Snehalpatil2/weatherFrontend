@@ -6,7 +6,7 @@ root.innerHTML = `<div id="header"></div>
 const header = document.querySelector('#header');
 header.innerHTML = `
   <div id="Search-card" class="card ">
-      <span>Weather Report</span>
+      <span id="weather-label">Weather Report</span>
       <div class="row">
       <div id="searchInput" class="col-lg-8">
         <input id="searchCity" class="form-control" type="search" placeholder="Search City" aria-label="Search">
@@ -18,23 +18,29 @@ header.innerHTML = `
       </div>
   </div>`
 
-document.querySelector("#searchCity").addEventListener('focusin', () => {
-  const dropdown = document.querySelector("#dropdown");
-  dropdown.classList.remove("hide");
-  const storedArray = localStorage.getItem("searchHistory");
-  const parsedArray = storedArray ? JSON.parse(storedArray) : [];
-  dropdown.innerHTML = "";
-  parsedArray.forEach(element => {
-    const li = document.createElement('li');
-    li.innerHTML = `${element}`;
-    li.addEventListener('click', () => {
-      document.getElementById('searchCity').value = element;
-      dropdown.classList.add("hide");
-    });
-    dropdown.appendChild(li);
+  document.querySelector("#searchCity").addEventListener('focusin', () => {
+    const dropdown = document.querySelector("#dropdown");
+    const storedArray = localStorage.getItem("searchHistory");
+    const parsedArray = storedArray ? JSON.parse(storedArray) : [];
+  
+    if (parsedArray.length > 0) {
+      dropdown.classList.remove("hide"); // Show the dropdown only if there are items
+      dropdown.innerHTML = ""; // Clear previous content
+  
+      parsedArray.forEach(element => {
+        const li = document.createElement('li');
+        li.innerHTML = `${element}`;
+        li.addEventListener('click', () => {
+          document.getElementById('searchCity').value = element;
+          dropdown.classList.add("hide"); // Hide the dropdown after selection
+        });
+        dropdown.appendChild(li);
+      });
+    } else {
+      dropdown.classList.add("hide"); // Keep it hidden if there are no items
+    }
   });
-});
-
+  
 
 
 function insertCity(city) {
