@@ -1,6 +1,6 @@
 let searchHistory = [];   //store searched city
 
-const root = document.querySelector('#root'); 
+const root = document.querySelector('#root');
 //render search card to search city 
 root.innerHTML = `<div id="header"></div>
 <div id="main"></div>`
@@ -20,7 +20,7 @@ header.innerHTML = `
   </div>`
 
 
-  //add dropdown list 
+//add dropdown list 
 document.querySelector("#searchCity").addEventListener('focusin', () => {
   const dropdown = document.querySelector("#dropdown");
   const storedArray = localStorage.getItem("searchHistory");
@@ -44,15 +44,20 @@ document.querySelector("#searchCity").addEventListener('focusin', () => {
   }
 });
 
-//hide dropdown when you click anywhere on page other than searchbar
-document.addEventListener('click', (event) => {
+// Function to hide the dropdown if clicked outside
+const hideDropdown = (event) => {
   const searchInput = document.querySelector('#searchCity');
   const dropdown = document.querySelector('#dropdown');
 
+  // Check if the clicked target is not the search input or the dropdown
   if (!searchInput.contains(event.target) && !dropdown.contains(event.target)) {
-    dropdown.classList.add('hide');  
+    dropdown.classList.add('hide');  // 
   }
-});
+};
+
+// Event listener for click/touch events
+document.addEventListener('click', hideDropdown);
+document.addEventListener('touchstart', hideDropdown);
 
 
 //if city is not searched before then add in searchHistory
@@ -118,7 +123,7 @@ const getCity = async () => {
             <div id="left-card" class="card col-lg-3 mx-auto mt-3">
                 <div class="header">${city} </div>
                 <div class="temperature" id="temperature">${temp}°C</div>
-                <img class="icon"src="${icon}">
+                <img class="icon" src="${icon}">
               <div id="weather-status" class="text-center" >${weather_condition}</div><div id="feels-like" class="text-center"><b>Feels like:</b> ${feels_like}°C</div>
               <div id="feels-like" class="text-center"></div>
             </div>
@@ -167,6 +172,3 @@ const getCity = async () => {
     }
   }
 }
-
-
-

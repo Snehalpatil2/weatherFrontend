@@ -139,7 +139,7 @@ body {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 2% 6%;
+  padding: 3% 5%;
   margin: 1% auto;
   opacity: 0.9;
   overflow: visible;
@@ -228,5 +228,6 @@ body {
   font-size: 200%;
   font-weight: bold;
   color: #001A6E;
-  padding: 2% 6%;
+  margin: 2%;
+  padding:2%;
 }
