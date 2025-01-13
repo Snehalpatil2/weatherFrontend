@@ -14,8 +14,7 @@ body {
 
 .card {
   background: linear-gradient(135deg, rgba(135, 206, 250, 0.9), rgba(240, 248, 255, 0.8));
-
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   padding: 15px;
 }
@@ -207,7 +206,6 @@ body {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  /* max-height: 200px; */
   overflow-y: auto;
   z-index: 1;
   padding: 0 1%;

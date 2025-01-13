@@ -1,6 +1,7 @@
-let searchHistory = [];
+let searchHistory = [];   //store searched city
 
-const root = document.querySelector('#root');
+const root = document.querySelector('#root'); 
+//render search card to search city 
 root.innerHTML = `<div id="header"></div>
 <div id="main"></div>`
 const header = document.querySelector('#header');
@@ -18,31 +19,33 @@ header.innerHTML = `
       </div>
   </div>`
 
-  document.querySelector("#searchCity").addEventListener('focusin', () => {
-    const dropdown = document.querySelector("#dropdown");
-    const storedArray = localStorage.getItem("searchHistory");
-    const parsedArray = storedArray ? JSON.parse(storedArray) : [];
-  
-    if (parsedArray.length > 0) {
-      dropdown.classList.remove("hide"); // Show the dropdown only if there are items
-      dropdown.innerHTML = ""; // Clear previous content
-  
-      parsedArray.forEach(element => {
-        const li = document.createElement('li');
-        li.innerHTML = `${element}`;
-        li.addEventListener('click', () => {
-          document.getElementById('searchCity').value = element;
-          dropdown.classList.add("hide"); // Hide the dropdown after selection
-        });
-        dropdown.appendChild(li);
+
+  //add dropdown list 
+document.querySelector("#searchCity").addEventListener('focusin', () => {
+  const dropdown = document.querySelector("#dropdown");
+  const storedArray = localStorage.getItem("searchHistory");
+  const parsedArray = storedArray ? JSON.parse(storedArray) : [];
+
+  if (parsedArray.length > 0) {
+    dropdown.classList.remove("hide");
+    dropdown.innerHTML = "";
+    parsedArray.forEach(element => {
+      const li = document.createElement('li');
+      li.innerHTML = `${element}`;
+      li.addEventListener('click', () => {
+        document.getElementById('searchCity').value = element;
+        dropdown.classList.add("hide");
       });
-    } else {
-      dropdown.classList.add("hide"); // Keep it hidden if there are no items
-    }
-  });
-  
+      dropdown.appendChild(li);
+    });
+  } else {
+    dropdown.classList.add("hide");
+    dropdown.innerHTML = "";
+  }
+});
 
 
+//if city is not searched before then add in searchHistory
 function insertCity(city) {
   const storedArray = localStorage.getItem("searchHistory");
   const parsedArray = storedArray ? JSON.parse(storedArray) : [];
@@ -52,12 +55,13 @@ function insertCity(city) {
   }
 }
 
+//display the loader
 const loader = () => {
   const main = document.querySelector("#main");
   main.innerHTML = `<div id="load-data"><span class="loader"></span></div>`
 }
 
-
+//if there is an any error shows error
 const renderError = (msg) => {
   const main = document.querySelector('#main');
   main.innerHTML = `
@@ -68,7 +72,7 @@ const renderError = (msg) => {
     </div>`
 }
 
-
+//fetch city and display in the cards
 const getCity = async () => {
   const dropdown = document.querySelector("#dropdown");
   dropdown.classList.add("hide");
