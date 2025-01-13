@@ -44,6 +44,16 @@ document.querySelector("#searchCity").addEventListener('focusin', () => {
   }
 });
 
+//hide dropdown when you click anywhere on page other than searchbar
+document.addEventListener('click', (event) => {
+  const searchInput = document.querySelector('#searchCity');
+  const dropdown = document.querySelector('#dropdown');
+
+  if (!searchInput.contains(event.target) && !dropdown.contains(event.target)) {
+    dropdown.classList.add('hide');  
+  }
+});
+
 
 //if city is not searched before then add in searchHistory
 function insertCity(city) {

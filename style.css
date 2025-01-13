@@ -143,7 +143,6 @@ body {
   margin: 1% auto;
   opacity: 0.9;
   overflow: visible;
-
 }
 
 #Error-box {
@@ -229,4 +228,5 @@ body {
   font-size: 200%;
   font-weight: bold;
   color: #001A6E;
+  padding: 2% 6%;
 }
