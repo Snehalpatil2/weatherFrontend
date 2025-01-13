@@ -25,8 +25,8 @@ Before running this web app, ensure that you have the following installed:
 If you are using Git, you can clone the repository to your local machine:
 
 ```bash
-git clone <repository-url>
-cd <repository-folder>
+git clone https://github.com/Snehalpatil2/weatherFrontend.git
+cd weatherFrontend
 ```
 
 ### 2. Open the `index.html` File
@@ -75,6 +75,6 @@ If you want to run the app in a development environment, you can set up a simple
 
 This will start a local server and open the app in your browser.
 
-## License
+## Author
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Snehal Jitendra Patil
